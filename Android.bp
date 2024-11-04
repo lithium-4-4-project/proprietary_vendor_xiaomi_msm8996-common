@@ -15,7 +15,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary/lib/libFileMux.so"],
+			srcs: ["proprietary/system/lib/libFileMux.so"],
 		},
 	},
 	compile_multilib: "32",
@@ -31,7 +31,7 @@ cc_prebuilt_library_shared {
 	},
 	target: {
 		android_arm: {
-			srcs: ["proprietary/lib/libOmxMux.so"],
+			srcs: ["proprietary/system/lib/libOmxMux.so"],
 		},
 	},
 	compile_multilib: "32",
@@ -1004,23 +1004,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "libFlacSwDec",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libFlacSwDec.so"],
-		},
-	},
-	compile_multilib: "32",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libOmxAacDec",
 	owner: "xiaomi",
 	strip: {
@@ -1080,23 +1063,6 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libOmxApeDec.so"],
-		},
-	},
-	compile_multilib: "32",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libOmxApeDecSw",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libOmxApeDecSw.so"],
 		},
 	},
 	compile_multilib: "32",
@@ -5913,6 +5879,23 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "vendor.qti.hardware.fm@1.0",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.fm@1.0.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "vendor.qti.hardware.mwqemadapter@1.0",
 	owner: "xiaomi",
 	strip: {
@@ -7346,7 +7329,7 @@ dex_import {
 }
 
 prebuilt_etc_xml {
-	name: "ReferenceFeature",
+	name: "ReferenceFeature.xml",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/lm/ReferenceFeature.xml",
 	filename_from_src: true,
@@ -7355,7 +7338,7 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-	name: "manifest_android.hardware.drm@1.4-service.widevine",
+	name: "manifest_android.hardware.drm@1.4-service.widevine.xml",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml",
 	filename_from_src: true,
@@ -7364,7 +7347,7 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-	name: "vendor.qti.gnss@4.0-service",
+	name: "vendor.qti.gnss@4.0-service.xml",
 	owner: "xiaomi",
 	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml",
 	filename_from_src: true,
@@ -7372,337 +7355,748 @@ prebuilt_etc_xml {
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "adpl",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/adpl",
-	filename: "adpl",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/adpl"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "adsprpcd",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/adsprpcd",
-	filename: "adsprpcd",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/adsprpcd"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "cnd",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/cnd",
-	filename: "cnd",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/cnd"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "cnss-daemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/cnss-daemon",
-	filename: "cnss-daemon",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/cnss-daemon"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "dpmQmiMgr",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/dpmQmiMgr",
-	filename: "dpmQmiMgr",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/dpmQmiMgr"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "dspservice",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/dspservice",
-	filename: "dspservice",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/dspservice"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "hvdcp_opti",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hvdcp_opti",
-	filename: "hvdcp_opti",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hvdcp_opti"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "android.hardware.bluetooth@1.0-service-qti",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti",
-	filename: "android.hardware.bluetooth@1.0-service-qti",
-	sub_dir: "hw",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "android.hardware.drm@1.4-service.widevine",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hw/android.hardware.drm@1.4-service.widevine",
-	filename: "android.hardware.drm@1.4-service.widevine",
-	sub_dir: "hw",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hw/android.hardware.drm@1.4-service.widevine"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "qcrild",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hw/qcrild",
-	filename: "qcrild",
-	sub_dir: "hw",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hw/qcrild"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "vendor.display.color@1.0-service",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hw/vendor.display.color@1.0-service",
-	filename: "vendor.display.color@1.0-service",
-	sub_dir: "hw",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hw/vendor.display.color@1.0-service"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "vendor.qti.hardware.alarm@1.0-service",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service",
-	filename: "vendor.qti.hardware.alarm@1.0-service",
-	sub_dir: "hw",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "vendor.qti.hardware.tui_comm@1.0-service-qti",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti",
-	filename: "vendor.qti.hardware.tui_comm@1.0-service-qti",
-	sub_dir: "hw",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "ims_rtp_daemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/ims_rtp_daemon",
-	filename: "ims_rtp_daemon",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/ims_rtp_daemon"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "imsdatadaemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/imsdatadaemon",
-	filename: "imsdatadaemon",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/imsdatadaemon"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "imsqmidaemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/imsqmidaemon",
-	filename: "imsqmidaemon",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/imsqmidaemon"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "imsrcsd",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/imsrcsd",
-	filename: "imsrcsd",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/imsrcsd"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "irsc_util",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/irsc_util",
-	filename: "irsc_util",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/irsc_util"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "loc_launcher",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/loc_launcher",
-	filename: "loc_launcher",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/loc_launcher"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "lowi-server",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/lowi-server",
-	filename: "lowi-server",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/lowi-server"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "mm-pp-dpps",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/mm-pp-dpps",
-	filename: "mm-pp-dpps",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/mm-pp-dpps"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "mm-qcamera-daemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/mm-qcamera-daemon",
-	filename: "mm-qcamera-daemon",
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/bin/mm-qcamera-daemon"],
+		},
+	},
+	compile_multilib: "32",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "netmgrd",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/netmgrd",
-	filename: "netmgrd",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/netmgrd"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "pm-proxy",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/pm-proxy",
-	filename: "pm-proxy",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/pm-proxy"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "pm-service",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/pm-service",
-	filename: "pm-service",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/pm-service"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "port-bridge",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/port-bridge",
-	filename: "port-bridge",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/port-bridge"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "power_off_alarm",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/power_off_alarm",
-	filename: "power_off_alarm",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/power_off_alarm"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "qrtr-lookup",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/qrtr-lookup",
-	filename: "qrtr-lookup",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/qrtr-lookup"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "qrtr-ns",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/qrtr-ns",
-	filename: "qrtr-ns",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/qrtr-ns"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "qseecomd",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/qseecomd",
-	filename: "qseecomd",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/qseecomd"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "qti",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/qti",
-	filename: "qti",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/qti"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "rmt_storage",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/rmt_storage",
-	filename: "rmt_storage",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/rmt_storage"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "sensors.qti",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/sensors.qti",
-	filename: "sensors.qti",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/sensors.qti"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "ssr_setup",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/ssr_setup",
-	filename: "ssr_setup",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/ssr_setup"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "tftp_server",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/tftp_server",
-	filename: "tftp_server",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/tftp_server"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "thermal-engine",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/thermal-engine",
-	filename: "thermal-engine",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/thermal-engine"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "time_daemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/time_daemon",
-	filename: "time_daemon",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/time_daemon"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "xtra-daemon",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/xtra-daemon",
-	filename: "xtra-daemon",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/xtra-daemon"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "xtwifi-client",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/xtwifi-client",
-	filename: "xtwifi-client",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/xtwifi-client"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "xtwifi-inet-agent",
 	owner: "xiaomi",
-	src: "proprietary/vendor/bin/xtwifi-inet-agent",
-	filename: "xtwifi-inet-agent",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/bin/xtwifi-inet-agent"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	soc_specific: true,
 }
 
-sh_binary {
+cc_prebuilt_binary {
 	name: "dpmd",
 	owner: "xiaomi",
-	src: "proprietary/system_ext/bin/dpmd",
-	filename: "dpmd",
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/system_ext/bin/dpmd"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
 	system_ext_specific: true,
+}
+
+install_symlink {
+	name: "libimscamera_jni_libimscamera_jni_symlink64",
+	system_ext_specific: true,
+	installed_location: "priv-app/ims/lib/arm64/libimscamera_jni.so",
+	symlink_target: "/system_ext/lib64/libimscamera_jni.so",
+}
+
+install_symlink {
+	name: "libimsmedia_jni_libimsmedia_jni_symlink64",
+	system_ext_specific: true,
+	installed_location: "priv-app/ims/lib/arm64/libimsmedia_jni.so",
+	symlink_target: "/system_ext/lib64/libimsmedia_jni.so",
+}
+
+install_symlink {
+	name: "libEGL_adreno_libEGL_adreno_symlink32",
+	soc_specific: true,
+	installed_location: "lib/libEGL_adreno.so",
+	symlink_target: "/vendor/lib/egl/libEGL_adreno.so",
+}
+
+install_symlink {
+	name: "libGLESv2_adreno_libGLESv2_adreno_symlink32",
+	soc_specific: true,
+	installed_location: "lib/libGLESv2_adreno.so",
+	symlink_target: "/vendor/lib/egl/libGLESv2_adreno.so",
+}
+
+install_symlink {
+	name: "libEGL_adreno_libEGL_adreno_symlink64",
+	soc_specific: true,
+	installed_location: "lib64/libEGL_adreno.so",
+	symlink_target: "/vendor/lib64/egl/libEGL_adreno.so",
+}
+
+install_symlink {
+	name: "libGLESv2_adreno_libGLESv2_adreno_symlink64",
+	soc_specific: true,
+	installed_location: "lib64/libGLESv2_adreno.so",
+	symlink_target: "/vendor/lib64/egl/libGLESv2_adreno.so",
 }
 
