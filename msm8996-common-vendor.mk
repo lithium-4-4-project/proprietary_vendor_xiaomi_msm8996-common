@@ -52,7 +52,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/msm8996-common/proprietary/vendor/etc/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     vendor/xiaomi/msm8996-common/proprietary/vendor/etc/seccomp_policy/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
     vendor/xiaomi/msm8996-common/proprietary/vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/vendor.qti.hardware.dsp.policy \
-    vendor/xiaomi/msm8996-common/proprietary/vendor/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf \
     vendor/xiaomi/msm8996-common/proprietary/vendor/firmware/a530_gpmu.fw2:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_gpmu.fw2 \
     vendor/xiaomi/msm8996-common/proprietary/vendor/firmware/a530_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pfp.fw \
     vendor/xiaomi/msm8996-common/proprietary/vendor/firmware/a530_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pm4.fw \
@@ -92,7 +91,6 @@ PRODUCT_PACKAGES += \
     libadsprpc \
     libc2d30_bltlib \
     libdiag \
-    libdsi_netctrl \
     libdsutils \
     libfastcvadsp_stub \
     libfastcvopt \
@@ -133,7 +131,6 @@ PRODUCT_PACKAGES += \
     libOmxEvrcDec \
     libOmxG711Dec \
     libOmxQcelp13Dec \
-    libOmxVideoDSMode \
     libOmxWmaDec \
     libacdb-fts \
     libacdbloader \
@@ -155,6 +152,7 @@ PRODUCT_PACKAGES += \
     libjpegehw \
     libllvd_smore \
     libllvd_sw_tnr \
+    libmm-qcamera \
     libmmcamera2_c2d_module \
     libmmcamera2_cpp_module \
     libmmcamera2_dcrf \
@@ -322,13 +320,13 @@ PRODUCT_PACKAGES += \
     libdpmqmihal \
     libdrmfs \
     libdrmtime \
+    libdsi_netctrl \
     libgdtap \
     libhdcpsrm \
     libhdr_tm \
     libizat_client_api \
     libizat_core \
     liblbs_core \
-    liblearningmodule \
     libloc_api_v02 \
     libloc_socket \
     liblocationservice \
@@ -336,7 +334,6 @@ PRODUCT_PACKAGES += \
     liblowi_client \
     liblowi_wifihal \
     liblqe \
-    libmeters \
     libnetmgr \
     libnetmgr_common \
     libnlnetmgr \
@@ -351,7 +348,6 @@ PRODUCT_PACKAGES += \
     libqrtr \
     libqsocket \
     librcc \
-    libreffeature \
     libril-qc-hal-qmi \
     libril-qc-logger \
     librilqmiservices \
@@ -469,11 +465,11 @@ PRODUCT_PACKAGES += \
     libvpp_frc \
     libvpp_svc_skel \
     libavenhancements \
-    libmmosal_system_ext \
+    libmmosal \
     libmmparserextractor \
     libmmparser_lite \
     com.qualcomm.qti.ant@1.0 \
-    com.qualcomm.qti.dpm.api@1.0_system_ext \
+    com.qualcomm.qti.dpm.api@1.0 \
     com.quicinc.cne.api@1.0 \
     com.quicinc.cne.api@1.1 \
     com.quicinc.cne.constants@1.0 \
@@ -489,13 +485,11 @@ PRODUCT_PACKAGES += \
     libdpmfdmgr \
     libdpmframework \
     libdpmtcm \
-    libgralloc.qti_system_ext \
     libimscamera_jni \
     libimsmedia_jni \
     libmwqemiptablemgr \
-    libqdMetaData_system_ext \
     vendor.qti.diaghal@1.0 \
-    vendor.qti.imsrtpservice@3.0_system_ext \
+    vendor.qti.imsrtpservice@3.0 \
     CneApp \
     IWlanService \
     TimeService \
@@ -507,7 +501,6 @@ PRODUCT_PACKAGES += \
     com.qti.dpmframework \
     dpmapi \
     qcrilhook \
-    ReferenceFeature.xml \
     manifest_android.hardware.drm@1.4-service.widevine.xml \
     vendor.qti.gnss@4.0-service.xml \
     adpl \
@@ -548,8 +541,6 @@ PRODUCT_PACKAGES += \
     thermal-engine \
     time_daemon \
     xtra-daemon \
-    xtwifi-client \
-    xtwifi-inet-agent \
     dpmd
 
 PRODUCT_PACKAGES += \
